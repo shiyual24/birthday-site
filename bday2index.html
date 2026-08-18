@@ -1,0 +1,3474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Birthday Adventure — Act III & Act V</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* =========================================================
+   GLOBAL RESET
+========================================================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    overflow:hidden;
+}
+
+
+/* =========================================================
+   ACT III
+========================================================= */
+
+#act3{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(117,82,198,.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(239,193,77,.13),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #060714,
+            #11112c 55%,
+            #21132d
+        );
+
+    color:white;
+
+    font-family:"DM Sans",sans-serif;
+
+    transition:
+        opacity .7s ease,
+        visibility .7s ease;
+}
+
+#act3.hidden{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+
+/* =========================================================
+   ACT III SCENE
+========================================================= */
+
+#act3 .stars{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+#act3 .star{
+    position:absolute;
+
+    width:3px;
+    height:3px;
+
+    border-radius:50%;
+
+    background:#fff0ae;
+
+    box-shadow:
+        0 0 10px #ffe48b;
+
+    animation:
+        act3Twinkle
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+@keyframes act3Twinkle{
+    50%{
+        opacity:.2;
+        transform:scale(.5);
+    }
+}
+
+
+#act3 .scene-castle{
+    position:absolute;
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:110px;
+
+    background:#020208;
+    opacity:.45;
+
+    clip-path:polygon(
+        0 100%,
+        0 70%,
+        7% 70%,
+        10% 35%,
+        13% 70%,
+        23% 70%,
+        27% 8%,
+        31% 70%,
+        42% 70%,
+        46% 38%,
+        50% 70%,
+        61% 70%,
+        65% 15%,
+        69% 70%,
+        80% 70%,
+        85% 35%,
+        89% 70%,
+        100% 70%,
+        100% 100%
+    );
+}
+
+
+/* =========================================================
+   ACT III TITLE
+========================================================= */
+
+#act3 .act3-title{
+    position:relative;
+    z-index:5;
+
+    text-align:center;
+
+    padding:
+        clamp(20px,4vh,38px)
+        20px
+        5px;
+
+    opacity:0;
+
+    transform:translateY(-35px);
+
+    animation:
+        act3TitleEnter
+        1s
+        cubic-bezier(.16,.8,.25,1)
+        .15s
+        forwards;
+}
+
+@keyframes act3TitleEnter{
+    0%{
+        opacity:0;
+        transform:translateY(-35px);
+    }
+
+    70%{
+        opacity:1;
+        transform:translateY(5px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#act3 .kicker{
+    font-size:9px;
+    letter-spacing:4px;
+    color:rgba(255,255,255,.42);
+    text-transform:uppercase;
+}
+
+#act3 h1{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:
+        clamp(34px,5.5vw,54px);
+
+    line-height:1;
+
+    margin-top:8px;
+}
+
+#act3 .subtitle{
+    font-family:"Parisienne",cursive;
+
+    color:#e8c879;
+
+    font-size:23px;
+
+    margin-top:7px;
+}
+
+
+/* =========================================================
+   ACT III CONTENT
+========================================================= */
+
+#act3 .act3-content{
+    position:relative;
+    z-index:5;
+
+    width:min(1000px,94vw);
+
+    height:calc(100vh - 135px);
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:clamp(25px,5vw,65px);
+
+    align-items:center;
+
+    opacity:0;
+
+    animation:
+        act3ContentEnter
+        1s
+        ease
+        .45s
+        forwards;
+}
+
+@keyframes act3ContentEnter{
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+
+/* =========================================================
+   ACT III PHOTO
+========================================================= */
+
+#act3 .photo-side{
+    text-align:center;
+
+    opacity:0;
+
+    transform:
+        translateX(-45px)
+        scale(.94);
+
+    animation:
+        act3PhotoEnter
+        1s
+        cubic-bezier(.16,.8,.25,1)
+        .65s
+        forwards;
+}
+
+@keyframes act3PhotoEnter{
+    0%{
+        opacity:0;
+
+        transform:
+            translateX(-45px)
+            scale(.94);
+    }
+
+    70%{
+        opacity:1;
+
+        transform:
+            translateX(5px)
+            scale(1.015);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+#act3 .frame{
+    position:relative;
+
+    width:min(365px,39vw);
+
+    margin:auto;
+
+    padding:11px;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fff0a1,
+            #bd8a27 28%,
+            #ffe58b 52%,
+            #8f621d 75%,
+            #f4d875
+        );
+
+    box-shadow:
+        0 25px 65px rgba(0,0,0,.48),
+        0 0 35px rgba(237,195,88,.18);
+}
+
+#act3 .frame::before{
+    content:"";
+
+    position:absolute;
+
+    inset:6px;
+
+    border:
+        1px solid
+        rgba(255,248,207,.8);
+
+    border-radius:8px;
+
+    pointer-events:none;
+
+    z-index:3;
+}
+
+#act3 .photo{
+    width:100%;
+
+    height:min(52vh,480px);
+
+    border-radius:5px;
+
+    display:block;
+
+    object-fit:cover;
+}
+
+#act3 .rune{
+    position:absolute;
+
+    z-index:4;
+
+    color:#ffe58b;
+
+    font-size:20px;
+
+    animation:
+        act3RuneFloat
+        3s
+        ease-in-out
+        infinite;
+}
+
+@keyframes act3RuneFloat{
+    50%{
+        transform:
+            translateY(-7px)
+            rotate(4deg);
+    }
+}
+
+#act3 .r1{
+    top:-14px;
+    left:12%;
+}
+
+#act3 .r2{
+    top:23%;
+    right:-17px;
+}
+
+#act3 .r3{
+    bottom:-15px;
+    left:20%;
+}
+
+#act3 .r4{
+    bottom:18%;
+    right:-15px;
+}
+
+#act3 .photo-caption{
+    font-family:"Parisienne",cursive;
+
+    font-size:25px;
+
+    color:#e8c879;
+
+    margin-top:12px;
+
+    opacity:0;
+
+    transform:translateY(12px);
+
+    animation:
+        act3CaptionEnter
+        .7s
+        ease
+        1.25s
+        forwards;
+}
+
+@keyframes act3CaptionEnter{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================================================
+   ACT III SPELLS
+========================================================= */
+
+#act3 .spells{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    width:min(390px,100%);
+
+    opacity:0;
+
+    transform:translateX(45px);
+
+    animation:
+        act3SpellsEnter
+        .9s
+        cubic-bezier(.16,.8,.25,1)
+        .7s
+        forwards;
+}
+
+@keyframes act3SpellsEnter{
+    0%{
+        opacity:0;
+        transform:translateX(45px);
+    }
+
+    70%{
+        opacity:1;
+        transform:translateX(-4px);
+    }
+
+    100%{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+#act3 .spells-label{
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:rgba(255,255,255,.4);
+
+    margin-bottom:3px;
+}
+
+#act3 .spell{
+    position:relative;
+
+    text-align:left;
+
+    width:100%;
+
+    min-height:78px;
+
+    border:
+        1px solid
+        rgba(232,200,121,.2);
+
+    border-radius:18px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:white;
+
+    padding:
+        14px
+        18px
+        14px
+        62px;
+
+    cursor:pointer;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    transform:
+        translateY(20px)
+        scale(.96);
+
+    animation:
+        act3SpellEnter
+        .65s
+        cubic-bezier(.16,.8,.25,1)
+        forwards;
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+#act3 .spell:nth-of-type(2){
+    animation-delay:1.15s;
+}
+
+#act3 .spell:nth-of-type(3){
+    animation-delay:1.3s;
+}
+
+#act3 .spell:nth-of-type(4){
+    animation-delay:1.45s;
+}
+
+@keyframes act3SpellEnter{
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(20px)
+            scale(.96);
+    }
+
+    70%{
+        opacity:1;
+
+        transform:
+            translateY(-3px)
+            scale(1.01);
+    }
+
+    100%{
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+#act3 .spell:hover{
+    transform:
+        translateX(6px)
+        scale(1.015);
+
+    border-color:
+        rgba(232,200,121,.55);
+
+    background:
+        rgba(255,255,255,.075);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.2);
+}
+
+#act3 .spell.active{
+    border-color:#e8c879;
+
+    background:
+        rgba(232,200,121,.1);
+
+    box-shadow:
+        0 0 22px
+        rgba(232,200,121,.12);
+}
+
+#act3 .icon{
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    font-size:27px;
+}
+
+#act3 .spell strong{
+    display:block;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:23px;
+}
+
+#act3 .spell span{
+    font-size:10px;
+
+    color:
+        rgba(255,255,255,.45);
+}
+
+#act3 .response{
+    min-height:35px;
+
+    font-family:"Parisienne",cursive;
+
+    color:#e8c879;
+
+    font-size:22px;
+
+    padding:2px 5px;
+}
+
+#act3 .progress{
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    color:
+        rgba(255,255,255,.25);
+}
+
+
+/* =========================================================
+   ACT III CONTINUE BUTTON
+========================================================= */
+
+#act3 .continue-wrap{
+    display:none;
+
+    text-align:center;
+
+    margin-top:3px;
+
+    animation:continueAppear .7s ease forwards;
+}
+
+#act3 .continue-wrap.show{
+    display:block;
+}
+
+@keyframes continueAppear{
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#act3 .continue-button{
+    border:
+        1px solid
+        rgba(232,200,121,.55);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(232,200,121,.18),
+            rgba(255,255,255,.08)
+        );
+
+    color:#fff5cf;
+
+    padding:
+        12px 25px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+
+    transition:.3s ease;
+}
+
+#act3 .continue-button:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 0 25px
+        rgba(232,200,121,.18);
+
+    background:
+        rgba(232,200,121,.22);
+}
+
+
+/* =========================================================
+   ACT III LAMPS
+========================================================= */
+
+#act3 .lamps{
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    z-index:2;
+
+    opacity:.08;
+}
+
+#act3 .lamp{
+    position:absolute;
+
+    font-size:25px;
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            #ffd65c
+        );
+}
+
+#act3 .l1{
+    left:7%;
+    top:30%;
+}
+
+#act3 .l2{
+    right:8%;
+    top:27%;
+}
+
+#act3 .l3{
+    left:16%;
+    bottom:19%;
+}
+
+#act3 .l4{
+    right:18%;
+    bottom:17%;
+}
+
+#act3.bright .lamps{
+    opacity:1;
+}
+
+
+/* =========================================================
+   ACT III CAKE
+========================================================= */
+
+#act3 .cake{
+    position:fixed;
+
+    z-index:50;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%)
+        scale(0);
+
+    opacity:0;
+
+    pointer-events:none;
+
+    font-size:
+        clamp(75px,10vw,110px);
+}
+
+#act3 .cake.show{
+    animation:
+        cakePopup
+        1.15s
+        cubic-bezier(.16,.8,.25,1)
+        forwards;
+}
+
+@keyframes cakePopup{
+    0%{
+        transform:
+            translate(-50%,-60%)
+            scale(.05)
+            rotate(-18deg);
+
+        opacity:0;
+    }
+
+    25%{
+        transform:
+            translate(-50%,-53%)
+            scale(.65)
+            rotate(10deg);
+
+        opacity:1;
+    }
+
+    55%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.18)
+            rotate(-5deg);
+    }
+
+    75%{
+        transform:
+            translate(-50%,-50%)
+            scale(.94)
+            rotate(2deg);
+    }
+
+    90%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.04);
+    }
+
+    100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+        opacity:1;
+    }
+}
+
+#act3 .cake.cut{
+    animation:
+        cakeCut
+        1s
+        ease
+        forwards;
+}
+
+@keyframes cakeCut{
+    0%{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+        opacity:1;
+    }
+
+    35%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.12)
+            rotate(-4deg);
+    }
+
+    65%{
+        transform:
+            translate(-50%,-50%)
+            scale(.9)
+            rotate(4deg);
+    }
+
+    100%{
+        transform:
+            translate(-50%,-50%)
+            scale(.05)
+            rotate(15deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   ACT III WISH
+========================================================= */
+
+#act3 .wish{
+    position:fixed;
+
+    inset:0;
+
+    z-index:70;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:
+        rgba(5,5,20,.84);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+        opacity .45s ease,
+        visibility .45s ease;
+}
+
+#act3 .wish.show{
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+}
+
+#act3 .wish-box{
+    text-align:center;
+
+    width:min(420px,85vw);
+
+    padding:20px;
+
+    transform:
+        translateY(45px)
+        scale(.6);
+
+    opacity:0;
+}
+
+#act3 .wish.show .wish-box{
+    animation:
+        wishPopup
+        .7s
+        cubic-bezier(.16,.8,.25,1)
+        forwards;
+}
+
+@keyframes wishPopup{
+    0%{
+        transform:
+            translateY(45px)
+            scale(.6)
+            rotate(-3deg);
+
+        opacity:0;
+    }
+
+    55%{
+        transform:
+            translateY(-8px)
+            scale(1.06)
+            rotate(1deg);
+
+        opacity:1;
+    }
+
+    75%{
+        transform:
+            translateY(3px)
+            scale(.97);
+    }
+
+    100%{
+        transform:
+            translateY(0)
+            scale(1);
+
+        opacity:1;
+    }
+}
+
+#act3 .moon{
+    font-size:70px;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            #ffe58b
+        );
+}
+
+#act3 .wish-box h2{
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:43px;
+
+    margin-top:8px;
+}
+
+#act3 .wish-box p{
+    color:
+        rgba(255,255,255,.5);
+
+    font-size:11px;
+
+    margin-top:9px;
+}
+
+#act3 .wish-button{
+    margin-top:22px;
+
+    border:
+        1px solid
+        rgba(232,200,121,.5);
+
+    background:
+        rgba(255,255,255,.06);
+
+    color:#fff8dc;
+
+    padding:
+        12px 25px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+}
+
+#act3 .wish-done{
+    display:none;
+
+    font-family:"Parisienne",cursive;
+
+    color:#e8c879;
+
+    font-size:28px;
+
+    margin-top:18px;
+}
+
+#act3 .wish-box.done .wish-done{
+    display:block;
+}
+
+#act3 .wish-box.done .wish-button{
+    display:none;
+}
+
+
+/* =========================================================
+   ACT III SPARKS
+========================================================= */
+
+.act3-spark{
+    position:fixed;
+
+    left:50%;
+    top:50%;
+
+    z-index:100;
+
+    pointer-events:none;
+
+    color:#e8c879;
+
+    animation:
+        act3Burst
+        .9s
+        ease-out
+        forwards;
+}
+
+@keyframes act3Burst{
+    to{
+        transform:
+            translate(
+                var(--x),
+                var(--y)
+            )
+            scale(.2)
+            rotate(180deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   ACT V
+========================================================= */
+
+#act5{
+    position:fixed;
+    inset:0;
+
+    display:none;
+
+    overflow:hidden;
+
+    font-family:"Baloo 2",sans-serif;
+
+    color:#514263;
+
+    background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(255,255,255,.8) 0 45px,
+            transparent 46px
+        ),
+        radial-gradient(
+            circle at 85% 12%,
+            rgba(255,255,255,.55) 0 70px,
+            transparent 71px
+        ),
+        linear-gradient(
+            135deg,
+            #eee3ff 0%,
+            #dfcdf8 35%,
+            #f1dcf3 70%,
+            #e6d8ff 100%
+        );
+}
+
+#act5.active{
+    display:block;
+}
+
+
+/* =========================================================
+   ACT V BACKGROUND
+========================================================= */
+
+#act5 .background{
+    position:fixed;
+    inset:0;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+#act5 .blob{
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(2px);
+
+    opacity:.45;
+}
+
+#act5 .blob.one{
+    width:260px;
+    height:260px;
+
+    background:#d3b8ef;
+
+    top:-100px;
+    left:-80px;
+}
+
+#act5 .blob.two{
+    width:320px;
+    height:320px;
+
+    background:#f4cce5;
+
+    right:-120px;
+    bottom:-120px;
+}
+
+#act5 .blob.three{
+    width:180px;
+    height:180px;
+
+    background:#cbb7ef;
+
+    left:40%;
+    bottom:-90px;
+}
+
+#act5 .sticker{
+    position:absolute;
+
+    user-select:none;
+
+    animation:
+        act5FloatSticker
+        5s
+        ease-in-out
+        infinite;
+}
+
+#act5 .star{
+    font-size:27px;
+    color:#fff;
+
+    text-shadow:
+        0 2px 8px
+        rgba(110,75,150,.2);
+}
+
+#act5 .flower{
+    font-size:31px;
+}
+
+#act5 .heart{
+    font-size:26px;
+}
+
+#act5 .cloud{
+    width:90px;
+    height:32px;
+
+    background:
+        rgba(255,255,255,.7);
+
+    border-radius:30px;
+}
+
+#act5 .cloud::before,
+#act5 .cloud::after{
+    content:"";
+
+    position:absolute;
+
+    background:
+        rgba(255,255,255,.7);
+
+    border-radius:50%;
+}
+
+#act5 .cloud::before{
+    width:38px;
+    height:38px;
+
+    left:15px;
+    top:-17px;
+}
+
+#act5 .cloud::after{
+    width:48px;
+    height:48px;
+
+    right:12px;
+    top:-24px;
+}
+
+#act5 .s1{
+    left:7%;
+    top:12%;
+}
+
+#act5 .s2{
+    left:17%;
+    top:76%;
+}
+
+#act5 .s3{
+    right:10%;
+    top:19%;
+}
+
+#act5 .s4{
+    right:16%;
+    bottom:16%;
+}
+
+#act5 .s5{
+    left:3%;
+    bottom:34%;
+}
+
+#act5 .s6{
+    right:4%;
+    top:58%;
+}
+
+#act5 .c1{
+    left:27%;
+    top:7%;
+    transform:scale(.7);
+}
+
+#act5 .c2{
+    right:26%;
+    bottom:8%;
+    transform:scale(.8);
+}
+
+@keyframes act5FloatSticker{
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(0deg);
+    }
+
+    50%{
+        transform:
+            translateY(-10px)
+            rotate(4deg);
+    }
+}
+
+
+/* =========================================================
+   ACT V SCREENS
+========================================================= */
+
+#act5 .screen{
+    position:fixed;
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    opacity:0;
+    visibility:hidden;
+
+    transform:scale(.97);
+
+    transition:
+        opacity .6s ease,
+        transform .6s ease,
+        visibility .6s;
+
+    z-index:5;
+}
+
+#act5 .screen.active{
+    opacity:1;
+    visibility:visible;
+
+    transform:scale(1);
+}
+
+
+/* =========================================================
+   ACT V CARD
+========================================================= */
+
+#act5 .card{
+    width:min(92vw,510px);
+
+    padding:38px 30px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.82),
+            rgba(255,250,255,.72)
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,.85);
+
+    border-radius:34px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(92,63,125,.18),
+        inset 0 0 30px
+        rgba(255,255,255,.5);
+
+    backdrop-filter:blur(15px);
+
+    position:relative;
+}
+
+#act5 .card::before{
+    content:"✦";
+
+    position:absolute;
+
+    top:17px;
+    left:22px;
+
+    color:#b795d5;
+
+    font-size:22px;
+}
+
+#act5 .card::after{
+    content:"♡";
+
+    position:absolute;
+
+    top:15px;
+    right:23px;
+
+    color:#c18cb7;
+
+    font-size:26px;
+}
+
+
+/* =========================================================
+   ACT V TITLES
+========================================================= */
+
+#act5 .act-title{
+    font-family:"Pacifico",cursive;
+
+    font-size:39px;
+
+    color:#765493;
+
+    margin:5px 0 8px;
+}
+
+#act5 .big-title{
+    font-family:"Fredoka",sans-serif;
+
+    font-weight:600;
+
+    font-size:38px;
+
+    color:#67457f;
+}
+
+#act5 .subtitle{
+    font-size:17px;
+
+    line-height:1.6;
+
+    color:#71617e;
+}
+
+
+/* =========================================================
+   ACT V BUTTONS
+========================================================= */
+
+#act5 button{
+    font-family:"Fredoka",sans-serif;
+
+    border:none;
+
+    padding:13px 25px;
+
+    border-radius:30px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+#act5 button:hover{
+    transform:
+        translateY(-3px)
+        scale(1.03);
+}
+
+#act5 .primary{
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #aa83cf,
+            #916cb9
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(126,88,163,.25);
+}
+
+#act5 .secondary{
+    color:#765493;
+
+    background:#fff;
+
+    border:
+        2px solid
+        #dcc9ed;
+}
+
+
+/* =========================================================
+   BUNNY
+========================================================= */
+
+#act5 .bunny-container{
+    width:170px;
+    height:170px;
+
+    margin:0 auto 10px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+
+#act5 .bunny-container img{
+    max-width:155px;
+    max-height:155px;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(95,65,120,.15)
+        );
+
+    animation:
+        act5BunnyFloat
+        2.7s
+        ease-in-out
+        infinite;
+}
+
+@keyframes act5BunnyFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+}
+
+
+/* =========================================================
+   SPEECH
+========================================================= */
+
+#act5 .speech{
+    display:inline-block;
+
+    background:white;
+
+    padding:15px 22px;
+
+    border-radius:22px;
+
+    font-family:"Fredoka",sans-serif;
+
+    font-size:18px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(95,65,120,.12);
+
+    position:relative;
+
+    margin-bottom:15px;
+}
+
+#act5 .speech::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:-10px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:10px solid white;
+}
+
+
+/* =========================================================
+   ENVELOPE
+========================================================= */
+
+#act5 .envelope-wrap{
+    cursor:pointer;
+
+    width:150px;
+    height:120px;
+
+    margin:10px auto 20px;
+
+    position:relative;
+
+    transition:
+        transform .3s ease;
+}
+
+#act5 .envelope-wrap:hover{
+    transform:
+        translateY(-6px)
+        rotate(-2deg);
+}
+
+#act5 .envelope{
+    position:absolute;
+
+    width:145px;
+    height:95px;
+
+    bottom:0;
+    left:2px;
+
+    background:#fff8ff;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(93,66,120,.16);
+
+    border:
+        2px solid
+        #e1cceb;
+}
+
+#act5 .envelope::before{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+    height:0;
+
+    border-left:
+        71px solid transparent;
+
+    border-right:
+        71px solid transparent;
+
+    border-top:
+        50px solid #e8d7f2;
+
+    z-index:2;
+}
+
+#act5 .envelope::after{
+    content:"♡";
+
+    position:absolute;
+
+    left:50%;
+    top:40px;
+
+    transform:translateX(-50%);
+
+    color:#a379c3;
+
+    font-size:28px;
+
+    z-index:3;
+}
+
+#act5 .tap-text{
+    font-size:14px;
+
+    color:#967fa6;
+}
+
+
+/* =========================================================
+   LETTER
+========================================================= */
+
+#act5 .letter{
+    display:none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaff,
+            #f9efff
+        );
+
+    border-radius:22px;
+
+    padding:22px;
+
+    margin-top:15px;
+
+    border:
+        2px dashed
+        #d7bce9;
+
+    animation:
+        letterAppear
+        .6s
+        ease;
+}
+
+@keyframes letterAppear{
+    from{
+        opacity:0;
+        transform:
+            translateY(15px)
+            scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+#act5 .letter p{
+    margin:7px 0;
+
+    font-size:17px;
+}
+
+
+/* =========================================================
+   FINAL PHOTO SCREEN
+========================================================= */
+
+#act5 .final-screen-card{
+    width:min(94vw,620px);
+
+    max-height:95vh;
+
+    overflow-y:auto;
+
+    padding:25px 25px 35px;
+
+    text-align:center;
+
+    background:
+        rgba(255,255,255,.76);
+
+    border:
+        2px solid
+        rgba(255,255,255,.9);
+
+    border-radius:36px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(91,62,122,.2);
+
+    backdrop-filter:blur(15px);
+
+    scrollbar-width:none;
+
+    position:relative;
+}
+
+#act5 .final-screen-card::-webkit-scrollbar{
+    display:none;
+}
+
+#act5 .final-title{
+    font-family:"Pacifico",cursive;
+
+    font-size:34px;
+
+    color:#73518d;
+
+    margin:0 0 8px;
+}
+
+#act5 .final-subtitle{
+    font-family:"Fredoka",sans-serif;
+
+    font-size:18px;
+
+    color:#786781;
+
+    margin-bottom:12px;
+}
+
+
+/* =========================================================
+   ACT V PHOTOS
+========================================================= */
+
+#act5 .photo-area{
+    position:relative;
+
+    width:min(90vw,520px);
+
+    height:430px;
+
+    margin:5px auto;
+}
+
+#act5 .photo-frame{
+    position:absolute;
+
+    background:white;
+
+    padding:9px;
+
+    border-radius:10px;
+
+    box-shadow:
+        0 15px 35px
+        rgba(76,52,99,.18);
+}
+
+#act5 .photo-frame img{
+    display:block;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:5px;
+}
+
+#act5 .photo-big{
+    width:68%;
+    height:355px;
+
+    left:2%;
+    top:10px;
+
+    transform:rotate(-3deg);
+
+    z-index:2;
+}
+
+#act5 .photo-small{
+    width:38%;
+    height:245px;
+
+    right:3%;
+    bottom:5px;
+
+    transform:rotate(5deg);
+
+    z-index:3;
+}
+
+#act5 .tape{
+    position:absolute;
+
+    width:75px;
+    height:20px;
+
+    background:
+        rgba(216,190,235,.72);
+
+    z-index:5;
+
+    transform:rotate(-8deg);
+}
+
+#act5 .tape.big{
+    left:23%;
+    top:0;
+}
+
+#act5 .tape.small{
+    right:11%;
+    bottom:213px;
+
+    transform:rotate(10deg);
+}
+
+
+/* =========================================================
+   QUESTION
+========================================================= */
+
+#act5 .question{
+    font-family:"Fredoka",sans-serif;
+
+    font-size:29px;
+
+    color:#654579;
+
+    margin-top:5px;
+}
+
+#act5 .trick-message{
+    min-height:30px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    color:#a15f87;
+
+    margin:5px 0;
+}
+
+#act5 .choice-area{
+    position:relative;
+
+    min-height:65px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+}
+
+#act5 .yes{
+    background:
+        linear-gradient(
+            135deg,
+            #a98bd0,
+            #8665ad
+        );
+
+    color:white;
+
+    min-width:115px;
+}
+
+#act5 .no{
+    background:#f2d2e4;
+
+    color:#8c5f7d;
+
+    min-width:115px;
+}
+
+
+/* =========================================================
+   FINAL NOTE
+========================================================= */
+
+#act5 .final-note{
+    display:none;
+
+    margin:20px auto 0;
+
+    max-width:470px;
+
+    padding:25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaff,
+            #f6eaff
+        );
+
+    border-radius:25px;
+
+    border:
+        2px dashed
+        #d2b5e4;
+
+    animation:
+        noteAppear
+        .8s
+        ease;
+}
+
+@keyframes noteAppear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#act5 .final-note h2{
+    font-family:"Pacifico",cursive;
+
+    color:#76528f;
+
+    font-size:28px;
+
+    margin-top:0;
+}
+
+#act5 .final-note p{
+    font-size:17px;
+
+    line-height:1.65;
+
+    margin:9px 0;
+
+    color:#695b73;
+}
+
+#act5 .final-note .little-line{
+    font-family:"Fredoka",sans-serif;
+
+    color:#8d6ba2;
+
+    font-size:15px;
+
+    margin-top:15px;
+}
+
+
+/* =========================================================
+   FINAL END
+========================================================= */
+
+#act5 .end-bunny{
+    width:150px;
+    height:150px;
+
+    margin:0 auto 5px;
+}
+
+#act5 .end-bunny img{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;
+
+    filter:
+        drop-shadow(
+            0 10px 10px
+            rgba(90,60,120,.15)
+        );
+}
+
+#act5 .end-title{
+    font-family:"Pacifico",cursive;
+
+    color:#73508d;
+
+    font-size:42px;
+
+    line-height:1.3;
+}
+
+#act5 .end-decoration{
+    font-family:"Fredoka",sans-serif;
+
+    letter-spacing:7px;
+
+    color:#aa86c3;
+
+    font-size:18px;
+}
+
+
+/* =========================================================
+   CONFETTI
+========================================================= */
+
+#act5 .confetti{
+    position:fixed;
+
+    top:-30px;
+
+    z-index:100;
+
+    pointer-events:none;
+
+    animation:
+        act5Fall
+        3s
+        linear
+        forwards;
+}
+
+@keyframes act5Fall{
+    from{
+        transform:
+            translateY(-30px)
+            rotate(0deg);
+
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    body{
+        overflow:hidden;
+    }
+
+    #act3{
+        overflow:auto;
+    }
+
+    #act3 .act3-title{
+        padding-top:24px;
+    }
+
+    #act3 .act3-content{
+        height:auto;
+
+        min-height:
+            calc(100vh - 145px);
+
+        padding:
+            12px 0 30px;
+
+        grid-template-columns:1fr;
+
+        gap:22px;
+
+        align-content:center;
+    }
+
+    #act3 .frame{
+        width:min(290px,70vw);
+    }
+
+    #act3 .photo{
+        height:310px;
+    }
+
+    #act3 .spells{
+        margin:auto;
+    }
+
+    #act3 .spell{
+        min-height:68px;
+    }
+
+
+    #act5{
+        overflow:auto;
+    }
+
+    #act5 .card{
+        padding:30px 20px;
+    }
+
+    #act5 .act-title{
+        font-size:34px;
+    }
+
+    #act5 .photo-area{
+        height:350px;
+    }
+
+    #act5 .photo-big{
+        height:285px;
+    }
+
+    #act5 .photo-small{
+        height:195px;
+    }
+
+    #act5 .final-title{
+        font-size:29px;
+    }
+
+    #act5 .question{
+        font-size:25px;
+    }
+
+    #act5 .sticker{
+        transform:scale(.75);
+    }
+}
+
+
+/* =========================================================
+   SHORT LAPTOP
+========================================================= */
+
+@media(
+    min-width:701px
+) and (
+    max-height:700px
+){
+
+    #act3 .act3-title{
+        padding-top:12px;
+    }
+
+    #act3 .act3-content{
+        height:
+            calc(100vh - 115px);
+    }
+
+    #act3 .photo{
+        height:min(46vh,400px);
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     ACT III
+========================================================= -->
+
+<section id="act3">
+
+    <div class="stars" id="act3Stars"></div>
+
+    <div class="scene-castle"></div>
+
+
+    <!-- LAMPS -->
+
+    <div class="lamps">
+
+        <div class="lamp l1">🕯️</div>
+        <div class="lamp l2">🕯️</div>
+        <div class="lamp l3">🏮</div>
+        <div class="lamp l4">🕯️</div>
+
+    </div>
+
+
+    <!-- TITLE -->
+
+    <div class="act3-title">
+
+        <div class="kicker">
+            ACT III · HOGWARTS DEPARTMENT
+        </div>
+
+        <h1>
+            Some magical spells for our dear Harry Potter ✨
+        </h1>
+
+        <div class="subtitle">
+            Choose wisely.
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="act3-content">
+
+
+        <!-- PHOTO -->
+
+        <section class="photo-side">
+
+            <div class="frame">
+
+                <span class="rune r1">✦</span>
+                <span class="rune r2">✧</span>
+                <span class="rune r3">⋆</span>
+                <span class="rune r4">✦</span>
+
+                <img
+                    src="./page10.png"
+                    class="photo"
+                    alt="Page 10 portrait"
+                >
+
+            </div>
+
+            <div class="photo-caption">
+                a little magic suits you.
+            </div>
+
+        </section>
+
+
+        <!-- SPELLS -->
+
+        <section class="spells">
+
+            <div class="spells-label">
+                Three spells available
+            </div>
+
+
+            <button
+                class="spell"
+                id="lightSpell"
+                onclick="lightSpell()"
+            >
+
+                <div class="icon">
+                    💡
+                </div>
+
+                <strong>
+                    Lumos
+                </strong>
+
+                <span>
+                    Light Spell · brighten the room
+                </span>
+
+            </button>
+
+
+            <button
+                class="spell"
+                id="foodSpell"
+                onclick="foodSpell()"
+            >
+
+                <div class="icon">
+                    🍰
+                </div>
+
+                <strong>
+                    Accio Cake
+                </strong>
+
+                <span>
+                    Food Spell · priorities, obviously
+                </span>
+
+            </button>
+
+
+            <button
+                class="spell"
+                id="wishSpell"
+                onclick="wishSpell()"
+            >
+
+                <div class="icon">
+                    🌟
+                </div>
+
+                <strong>
+                    Wish Spell
+                </strong>
+
+                <span>
+                    Make a wish · this one is yours
+                </span>
+
+            </button>
+
+
+            <div
+                class="response"
+                id="act3Response"
+            >
+                Your wand is waiting...
+            </div>
+
+
+            <div
+                class="progress"
+                id="act3Progress"
+            >
+                0 / 3 spells cast
+            </div>
+
+
+            <!-- CONTINUE ONLY APPEARS AFTER 3 SPELLS -->
+
+            <div
+                class="continue-wrap"
+                id="act3Continue"
+            >
+
+                <button
+                    class="continue-button"
+                    onclick="startAct5()"
+                >
+                    Continue to the Final Act →
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- CAKE -->
+
+    <div
+        class="cake"
+        id="act3Cake"
+    >
+        🎂
+    </div>
+
+
+    <!-- WISH -->
+
+    <div
+        class="wish"
+        id="act3Wish"
+    >
+
+        <div
+            class="wish-box"
+            id="act3WishBox"
+        >
+
+            <div class="moon">
+                🌟
+            </div>
+
+            <h2>
+                Make one wish.
+            </h2>
+
+            <p>
+                No spell needed.<br>
+                Just close your eyes for a second.
+            </p>
+
+            <button
+                class="wish-button"
+                onclick="completeWish()"
+            >
+                Wish made ✨
+            </button>
+
+            <div class="wish-done">
+                Consider it dispatched. 💫
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ACT V
+========================================================= -->
+
+<section id="act5">
+
+
+    <!-- BACKGROUND -->
+
+    <div class="background">
+
+        <div class="blob one"></div>
+        <div class="blob two"></div>
+        <div class="blob three"></div>
+
+        <div class="sticker star s1">✦</div>
+        <div class="sticker star s2">✧</div>
+        <div class="sticker star s3">⋆</div>
+        <div class="sticker star s4">✦</div>
+
+        <div class="sticker flower s5">✿</div>
+        <div class="sticker flower s6">❀</div>
+
+        <div class="sticker heart s3">♡</div>
+        <div class="sticker heart s4">♥</div>
+
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCREEN 1 — BUNNY
+    ====================================================== -->
+
+    <section
+        id="act5Screen1"
+        class="screen active"
+    >
+
+        <div class="card">
+
+            <div class="bunny-container">
+
+                <img
+                    src="bunny.gif"
+                    alt="Cute Bunny"
+                >
+
+            </div>
+
+            <div class="speech">
+                Psst... I have a lil message for you.
+            </div>
+
+            <p class="subtitle">
+
+                This bunny came all the way here
+                <br>
+
+                for one very important delivery.
+
+            </p>
+
+            <button
+                class="primary"
+                onclick="goToAct5Screen(2)"
+            >
+                Open the message
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 2 — LETTER
+    ====================================================== -->
+
+    <section
+        id="act5Screen2"
+        class="screen"
+    >
+
+        <div class="card">
+
+            <h1 class="act-title">
+                A little delivery...
+            </h1>
+
+            <p class="subtitle">
+
+                The bunny says you have
+                <br>
+
+                one tiny letter waiting.
+
+            </p>
+
+
+            <div
+                class="envelope-wrap"
+                onclick="openLetter()"
+            >
+
+                <div class="envelope"></div>
+
+            </div>
+
+            <div class="tap-text">
+                Tap the envelope
+            </div>
+
+
+            <div
+                class="letter"
+                id="act5Letter"
+            >
+
+                <p>
+                    “I was asked to deliver this personally...”
+                </p>
+
+                <p>
+                    So here you go.
+                </p>
+
+                <p>
+                    <strong>
+                        There is one last thing waiting for you.
+                    </strong>
+                </p>
+
+                <button
+                    class="primary"
+                    onclick="goToAct5Screen(3)"
+                >
+                    What is it? 👀
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 3 — FINAL ACT
+    ====================================================== -->
+
+    <section
+        id="act5Screen3"
+        class="screen"
+    >
+
+        <div class="final-screen-card">
+
+            <h1 class="final-title">
+                The Final Act
+            </h1>
+
+            <div class="final-subtitle">
+                Okay... one last thing.
+            </div>
+
+
+            <!-- PHOTOS -->
+
+            <div class="photo-area">
+
+                <div class="tape big"></div>
+                <div class="tape small"></div>
+
+
+                <div class="photo-frame photo-big">
+
+                    <img
+                        src="page1.png"
+                        alt="Photo"
+                    >
+
+                </div>
+
+
+                <div class="photo-frame photo-small">
+
+                    <img
+                        src="page16.png"
+                        alt="Portrait"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION -->
+
+            <div class="question">
+                Do you like it?
+            </div>
+
+
+            <div
+                id="trickMessage"
+                class="trick-message"
+            ></div>
+
+
+            <div
+                class="choice-area"
+                id="choiceArea"
+            >
+
+                <button
+                    class="yes"
+                    onclick="yesClicked()"
+                >
+                    YES ♡
+                </button>
+
+
+                <button
+                    class="no"
+                    id="noButton"
+                    onclick="noClicked()"
+                >
+                    NO
+                </button>
+
+            </div>
+
+
+            <!-- FINAL NOTE -->
+
+            <div
+                class="final-note"
+                id="finalNote"
+            >
+
+                <h2>
+                    I knew it. ♡
+                </h2>
+
+                <p>
+                    Hope this day is good for you.
+                </p>
+
+                <p>
+                    Enjoy it with
+                    <strong>
+                        Friends, Family and Fav people.
+                    </strong>
+                </p>
+
+                <p>
+                    Make some good memories,
+                    laugh a lot,
+                    eat something amazing,
+                    and enjoy your day.
+                </p>
+
+                <p>
+                    You deserve a really good birthday.
+                </p>
+
+                <h2>
+                    Happy Birthday!
+                </h2>
+
+                <div class="little-line">
+                    one last little adventure — complete ♡
+                </div>
+
+
+                <button
+                    class="primary"
+                    onclick="finishAdventure()"
+                >
+                    Finish the Adventure
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SCREEN 4 — END
+    ====================================================== -->
+
+    <section
+        id="act5Screen4"
+        class="screen"
+    >
+
+        <div class="card">
+
+            <div class="end-bunny">
+
+                <img
+                    src="bunny.gif"
+                    alt="Bunny"
+                >
+
+            </div>
+
+            <div class="end-decoration">
+                ✦ ❀ ✦
+            </div>
+
+            <h1 class="end-title">
+                Happy Birthday!
+            </h1>
+
+            <p class="subtitle">
+                Quest Complete ♡
+            </p>
+
+            <p class="subtitle">
+                Hope you enjoyed
+                this little adventure.
+            </p>
+
+            <div class="end-decoration">
+                ✧ ♡ ✧
+            </div>
+
+
+            <button
+                class="secondary"
+                onclick="location.reload()"
+            >
+                Replay the Adventure ↻
+            </button>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+<script>
+
+/* =========================================================
+   ACT III — STARS
+========================================================= */
+
+for(let i = 0; i < 70; i++){
+
+    const star =
+        document.createElement("span");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    star.style.animationDuration =
+        (2 + Math.random() * 3) + "s";
+
+    document
+        .getElementById("act3Stars")
+        .appendChild(star);
+}
+
+
+/* =========================================================
+   ACT III — SPELL TRACKING
+========================================================= */
+
+const act3Cast = new Set();
+
+const act3Response =
+    document.getElementById("act3Response");
+
+const act3Progress =
+    document.getElementById("act3Progress");
+
+
+function updateAct3Progress(){
+
+    act3Progress.textContent =
+        act3Cast.size +
+        " / 3 spells cast";
+
+
+    /* SHOW CONTINUE AFTER ALL 3 SPELLS */
+
+    if(act3Cast.size === 3){
+
+        document
+            .getElementById("act3Continue")
+            .classList
+            .add("show");
+
+        act3Response.textContent =
+            "All three spells completed. ✨ Your final adventure awaits.";
+    }
+
+}
+
+
+/* =========================================================
+   ACT III — SPARKS
+========================================================= */
+
+function act3Sparks(){
+
+    const symbols = [
+        "✦",
+        "✧",
+        "⋆",
+        "✨",
+        "·"
+    ];
+
+    for(let i = 0; i < 22; i++){
+
+        const spark =
+            document.createElement("span");
+
+        spark.className =
+            "act3-spark";
+
+        spark.textContent =
+            symbols[
+                Math.floor(
+                    Math.random() *
+                    symbols.length
+                )
+            ];
+
+        const angle =
+            Math.random() *
+            Math.PI *
+            2;
+
+        const distance =
+            70 +
+            Math.random() * 150;
+
+        spark.style.setProperty(
+            "--x",
+            Math.cos(angle) *
+            distance +
+            "px"
+        );
+
+        spark.style.setProperty(
+            "--y",
+            Math.sin(angle) *
+            distance +
+            "px"
+        );
+
+        document.body.appendChild(spark);
+
+        setTimeout(
+            () => spark.remove(),
+            950
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   ACT III — ACTIVE SPELL
+========================================================= */
+
+function markAct3Spell(id){
+
+    document
+        .querySelectorAll("#act3 .spell")
+        .forEach(button => {
+
+            button.classList.remove("active");
+
+        });
+
+    document
+        .getElementById(id)
+        .classList
+        .add("active");
+
+    updateAct3Progress();
+
+}
+
+
+/* =========================================================
+   LUMOS
+========================================================= */
+
+function lightSpell(){
+
+    act3Cast.add("light");
+
+    markAct3Spell("lightSpell");
+
+    document
+        .getElementById("act3")
+        .classList
+        .add("bright");
+
+    act3Response.textContent =
+        "Lumos! Okay, much better. ✨";
+
+    act3Sparks();
+
+}
+
+
+/* =========================================================
+   ACCIO CAKE
+========================================================= */
+
+function foodSpell(){
+
+    act3Cast.add("food");
+
+    markAct3Spell("foodSpell");
+
+    const cake =
+        document.getElementById("act3Cake");
+
+
+    cake.classList.remove(
+        "show",
+        "cut"
+    );
+
+    void cake.offsetWidth;
+
+    cake.classList.add("show");
+
+    act3Response.textContent =
+        "Accio Cake! Finally, a useful spell. 🍰";
+
+    act3Sparks();
+
+
+    setTimeout(() => {
+
+        cake.classList.remove("show");
+
+        void cake.offsetWidth;
+
+        cake.classList.add("cut");
+
+
+        setTimeout(() => {
+
+            cake.classList.remove("cut");
+
+        },1000);
+
+    },2200);
+
+}
+
+
+/* =========================================================
+   WISH SPELL
+========================================================= */
+
+function wishSpell(){
+
+    act3Cast.add("wish");
+
+    markAct3Spell("wishSpell");
+
+    act3Response.textContent =
+        "The most important spell. 🌟";
+
+    const wish =
+        document.getElementById("act3Wish");
+
+    const box =
+        document.getElementById("act3WishBox");
+
+
+    box.classList.remove("done");
+
+    wish.classList.remove("show");
+
+    void wish.offsetWidth;
+
+    wish.classList.add("show");
+
+    act3Sparks();
+
+}
+
+
+/* =========================================================
+   COMPLETE WISH
+========================================================= */
+
+function completeWish(){
+
+    const box =
+        document.getElementById("act3WishBox");
+
+    box.classList.add("done");
+
+    act3Sparks();
+
+    setTimeout(() => {
+
+        document
+            .getElementById("act3Wish")
+            .classList
+            .remove("show");
+
+        act3Response.textContent =
+            "Wish successfully dispatched. ✨";
+
+
+        updateAct3Progress();
+
+
+        setTimeout(() => {
+
+            box.classList.remove("done");
+
+        },500);
+
+    },1800);
+
+}
+
+
+/* =========================================================
+   CLOSE WISH
+========================================================= */
+
+document
+    .getElementById("act3Wish")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === this){
+
+                this.classList.remove("show");
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   ACT III → ACT V
+========================================================= */
+
+function startAct5(){
+
+    const act3 =
+        document.getElementById("act3");
+
+    const act5 =
+        document.getElementById("act5");
+
+
+    /* Fade Act III out */
+
+    act3.classList.add("hidden");
+
+
+    /* Wait for fade */
+
+    setTimeout(() => {
+
+        act3.style.display = "none";
+
+        act5.classList.add("active");
+
+        goToAct5Screen(1);
+
+    },700);
+
+}
+
+
+/* =========================================================
+   ACT V — SCREEN NAVIGATION
+========================================================= */
+
+function goToAct5Screen(number){
+
+    document
+        .querySelectorAll("#act5 .screen")
+        .forEach(screen => {
+
+            screen.classList.remove("active");
+
+        });
+
+
+    document
+        .getElementById(
+            "act5Screen" + number
+        )
+        .classList
+        .add("active");
+
+}
+
+
+/* =========================================================
+   ACT V — LETTER
+========================================================= */
+
+function openLetter(){
+
+    const letter =
+        document.getElementById("act5Letter");
+
+    letter.style.display =
+        "block";
+
+}
+
+
+/* =========================================================
+   ACT V — NO BUTTON
+========================================================= */
+
+let noCount = 0;
+
+
+function noClicked(){
+
+    noCount++;
+
+    const message =
+        document.getElementById("trickMessage");
+
+    if(noCount === 1){
+
+        message.innerHTML =
+            "Ni nakhre dikhogi 😭";
+
+        moveNoButton();
+
+    }
+
+    else if(noCount === 2){
+
+        message.innerHTML =
+            "Nice try 👀";
+
+        moveNoButton();
+
+    }
+
+    else if(noCount === 3){
+
+        message.innerHTML =
+            "NO option temporarily unavailable 😭";
+
+        moveNoButton();
+
+    }
+
+    else if(noCount === 4){
+
+        message.innerHTML =
+            "Bas bas... YES daba do 😂";
+
+        moveNoButton();
+
+    }
+
+    else{
+
+        message.innerHTML =
+            "Okay okay... one last chance 😭";
+
+        moveNoButton();
+
+    }
+
+}
+
+
+/* =========================================================
+   ACT V — MOVE NO BUTTON
+========================================================= */
+
+function moveNoButton(){
+
+    const button =
+        document.getElementById("noButton");
+
+
+    button.style.position =
+        "fixed";
+
+
+    const padding = 20;
+
+
+    const maxX =
+        window.innerWidth -
+        button.offsetWidth -
+        padding;
+
+
+    const maxY =
+        window.innerHeight -
+        button.offsetHeight -
+        padding;
+
+
+    const x =
+        Math.max(
+            padding,
+            Math.random() * maxX
+        );
+
+
+    const y =
+        Math.max(
+            padding,
+            Math.random() * maxY
+        );
+
+
+    button.style.left =
+        x + "px";
+
+
+    button.style.top =
+        y + "px";
+
+}
+
+
+/* =========================================================
+   ACT V — YES
+========================================================= */
+
+function yesClicked(){
+
+    const buttons =
+        document.getElementById(
+            "choiceArea"
+        );
+
+    const message =
+        document.getElementById(
+            "trickMessage"
+        );
+
+    const note =
+        document.getElementById(
+            "finalNote"
+        );
+
+
+    buttons.style.display =
+        "none";
+
+
+    message.innerHTML =
+        "See? I knew you'd like it. ♡";
+
+
+    note.style.display =
+        "block";
+
+
+    createConfetti();
+
+}
+
+
+/* =========================================================
+   ACT V — CONFETTI
+========================================================= */
+
+function createConfetti(){
+
+    const pieces = [
+
+        "✦",
+        "✧",
+        "♡",
+        "❀",
+        "✿",
+        "⋆"
+
+    ];
+
+
+    for(
+        let i = 0;
+        i < 45;
+        i++
+    ){
+
+        const piece =
+            document.createElement("div");
+
+
+        piece.className =
+            "confetti";
+
+
+        piece.innerHTML =
+            pieces[
+                Math.floor(
+                    Math.random() *
+                    pieces.length
+                )
+            ];
+
+
+        piece.style.left =
+            Math.random() *
+            100 +
+            "vw";
+
+
+        piece.style.fontSize =
+            (14 +
+            Math.random() * 18) +
+            "px";
+
+
+        piece.style.animationDelay =
+            Math.random() *
+            1.2 +
+            "s";
+
+
+        piece.style.color =
+            [
+                "#9d7bc1",
+                "#c58ab6",
+                "#b89bd3",
+                "#e0a9c8",
+                "#ffffff"
+            ][
+                Math.floor(
+                    Math.random() * 5
+                )
+            ];
+
+
+        document
+            .getElementById("act5")
+            .appendChild(piece);
+
+
+        setTimeout(
+            () => piece.remove(),
+            4000
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   ACT V — FINISH
+========================================================= */
+
+function finishAdventure(){
+
+    goToAct5Screen(4);
+
+    createConfetti();
+
+}
+
+</script>
+
+</body>
+</html>
